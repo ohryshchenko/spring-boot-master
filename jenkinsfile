@@ -6,6 +6,12 @@ tools {
     jdk 'jdk8'
 }
 
-                 
+  stage('Build') {
+    withMaven(maven: 'Maven 3') {
+      dir('spring-boot-tests/spring-boot-smoke-tests/spring-boot-smoke-test-web-ui/') {
+        sh 'mvn clean package'
+              }
+    }
+  }               
 
 }
